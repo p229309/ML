@@ -1,0 +1,13 @@
+{
+  "name": "t03-proposal-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local-first proposal generation and client onboarding MVP",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
