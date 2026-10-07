@@ -13,8 +13,10 @@ const {
 const ROOT = __dirname;
 const PUBLIC_DIR = path.join(ROOT, "public");
 const PORT = Number(process.env.PORT || 3000);
+const HOST = process.env.HOST || "127.0.0.1";
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "";
-const database = new DatabaseSync(path.join(ROOT, "t03.sqlite"));
+const databasePath = process.env.T03_DB_PATH || path.join(ROOT, "t03.sqlite");
+const database = new DatabaseSync(databasePath);
 
 database.exec(`
   PRAGMA foreign_keys = ON;
@@ -330,6 +332,6 @@ const server = http.createServer((request, response) => {
   });
 });
 
-server.listen(PORT, "127.0.0.1", () => {
-  console.log(`T-03 Proposal Studio running at http://127.0.0.1:${PORT}`);
+server.listen(PORT, HOST, () => {
+  console.log(`T-03 Proposal Studio listening on ${HOST}:${PORT}`);
 });

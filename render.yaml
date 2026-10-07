@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: t03-proposal-studio
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "24.21.0"
+      - key: HOST
+        value: 0.0.0.0
